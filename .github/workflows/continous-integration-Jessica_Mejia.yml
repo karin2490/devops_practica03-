@@ -10,18 +10,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Paso 1: Ejecución de pruebas de calidad de código
+     
+      # Paso 1: Pruebas de SAST
       - name: Pruebas de SAST
         run: echo "Ejecución de pruebas de SAST"
 
-      # Paso 2: Crear un archivo de credenciales
+        # Paso 2: Crear archivo de credenciales
       - name: Crear archivo de credenciales
         run: |
-          echo "[DEFAULT]" > credentials.ini
+          echo "[credentials]" > credentials.ini
           echo "username=${{ secrets.USERNAME }}" >> credentials.ini
           echo "password=${{ secrets.PASSWORD }}" >> credentials.ini
+        shell: bash
 
-      # Paso 3: Construcción del container de Docker
+      # Paso 3: Construcción de Docker
       - name: Build docker image
         run: |
           docker build -t devops_ws . --tag devops_ws:$(date +%s)
