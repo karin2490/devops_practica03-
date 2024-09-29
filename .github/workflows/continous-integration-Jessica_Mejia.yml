@@ -5,7 +5,7 @@ on:
     branches:
       - master
       - feature*
-      - hotfix*
+      - hotfix* 
 
 jobs:
   build:
