@@ -10,7 +10,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-     
+      # Paso 0: Checkout del código
+      - name: Checkout code
+        uses: actions/checkout@v2
+
       # Paso 1: Pruebas de SAST
       - name: Pruebas de SAST
         run: echo "Ejecución de pruebas de SAST"
